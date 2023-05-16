@@ -19,12 +19,24 @@ h1 {
   border-bottom: 3px solid white;
 }
 
+h2 {
+  margin-bottom: 30px;
+}
+
+p {
+  font-size: 15px;
+  padding: 10px 25px;
+  margin: auto;
+}
+
 .accountsList {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
   padding: 30px 0;
+  border-top: 1px solid #408c99;
+  border-bottom: 1px solid #408c99;
 }
 
 .fieldset {
@@ -34,8 +46,14 @@ h1 {
 }
 
 .fieldset-input {
-  height: 50px;
-  width: 100px;
+  background-color: #ABE8E5;
+  border-radius: 30px;
+  border: none;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bolder;
+  padding: 10px;
+  max-width: 120px;
 }
 
 .fieldset-buttons {

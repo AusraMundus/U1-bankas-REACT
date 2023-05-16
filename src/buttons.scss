@@ -7,9 +7,55 @@
     background-color: #599bb3;
     border-radius: 30px;
     border: none;
-    font-size: 20px;
-    padding: 10px 30px;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 10px 25px;
     margin: 3px;
+    &:hover {
+        background: linear - gradient(to bottom, #408c99 5%, #599bb3 100%);
+        background-color: #408c99;
+    }
+    &:active {
+        position: relative;
+        top: 1px;
+    }
+}
+
+.button-del {
+    cursor: pointer;
+    text-decoration: none;
+    color: #408c99;
+    display: inline - block;
+    background-color: #102A2D;
+    border-radius: 30px;
+    border: 1px solid #408c99;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 10px 25px;
+    margin: 3px;
+    &:hover {
+        background: linear - gradient(to bottom, #408c99 5%, #599bb3 100%);
+        background-color: #408c99;
+    }
+    &:active {
+        position: relative;
+        top: 1px;
+    }
+}
+
+.button-add {
+    cursor: pointer;
+    text-decoration: none;
+    color: #ffffff;
+    display: inline - block;
+    background: linear - gradient(to bottom, #599bb3 5%, #408c99 100%);
+    background-color: #599bb3;
+    border-radius: 30px;
+    border: none;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 10px 25px;
+    margin: 30px 3px 3px;
     &:hover {
         background: linear - gradient(to bottom, #408c99 5%, #599bb3 100%);
         background-color: #408c99;

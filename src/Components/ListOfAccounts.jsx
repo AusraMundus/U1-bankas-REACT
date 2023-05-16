@@ -20,7 +20,7 @@ export default function ListOfAccounts() {
                             </div>
                         </fieldset>
                     </form>
-                    <button className="button">Ištrinti sąskaitą</button>
+                    <button className="button-del">Ištrinti sąskaitą</button>
                 </div>
             </div>
         </>

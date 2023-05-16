@@ -10,7 +10,7 @@ function App() {
       <header className="App-header">
         <h1>Easy Way To Manage Accounts</h1>
         <ListOfAccounts />
-        <button className="button">Pridėti naują sąskaitą</button>
+        <button className="button-add">Pridėti naują sąskaitą</button>
       </header>
     </div>
   );
