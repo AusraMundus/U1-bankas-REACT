@@ -1,0 +1,21 @@
+.button {
+    cursor: pointer;
+    text-decoration: none;
+    color: #ffffff;
+    display: inline - block;
+    background: linear - gradient(to bottom, #599bb3 5%, #408c99 100%);
+    background-color: #599bb3;
+    border-radius: 30px;
+    border: none;
+    font-size: 20px;
+    padding: 10px 30px;
+    margin: 3px;
+    &:hover {
+        background: linear - gradient(to bottom, #408c99 5%, #599bb3 100%);
+        background-color: #408c99;
+    }
+    &:active {
+        position: relative;
+        top: 1px;
+    }
+}

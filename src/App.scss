@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #102A2D;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -11,4 +11,34 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+h1 {
+  margin-bottom: 50px;
+  padding: 20px 0;
+  border-bottom: 3px solid white;
+}
+
+.accountsList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px 0;
+}
+
+.fieldset {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fieldset-input {
+  height: 50px;
+  width: 100px;
+}
+
+.fieldset-buttons {
+  display: flex;
+  flex-direction: column;
 }
