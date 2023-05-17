@@ -12,8 +12,8 @@ const KEY = 'myAccounts';
 function App() {
 
   const [listUpdate, setListUpdate] = useState(Date.now());
-  const [accounts, setAccounts] = useState(null);
   const [createData, setCreateData] = useState(null);
+  const [accounts, setAccounts] = useState(null);
 
   //R read
   useEffect(_ => {
@@ -38,7 +38,8 @@ function App() {
         <div className="container">
           <div className="row">
             <div className="col-8">
-              <ListOfAccounts />
+              <ListOfAccounts 
+              accounts={accounts}/>
             </div>
             <div className="col-4">
               <AddNewAccount setCreateData={setCreateData} />
