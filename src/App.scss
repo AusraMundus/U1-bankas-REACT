@@ -34,9 +34,9 @@ p {
 }
 
 ul.no-bullets {
-  list-style-type: none; /* Remove bullets */
-  padding: 0; /* Remove padding */
-  margin: 0; /* Remove margins */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .accounts-list {
@@ -67,17 +67,7 @@ ul.no-bullets {
 }
 
 .fieldset-input {
-  background-color: #ABE8E5;
-  border-radius: 5px;
-  border: none;
-  text-align: center;
-  font-size: 15px;
-  padding: 10px;
-  max-width: 100%;
-}
-
-.fieldset-input-add-new {
-  background-color: #ABE8E5;
+  background-color: #b9ece9;
   border-radius: 5px;
   border: none;
   text-align: center;
@@ -89,4 +79,15 @@ ul.no-bullets {
 .fieldset-buttons {
   display: flex;
   flex-direction: column;
+}
+
+.modal {
+  display: block;
+  background-color: rgba(16, 42, 45, 0.803);
+  .modal-content {
+    background-color: #f7f7f7;
+  }
+  .modal-title, .modal-body {
+    color:#102A2D;
+  }
 }

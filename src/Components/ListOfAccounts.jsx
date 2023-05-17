@@ -1,6 +1,7 @@
-export default function ListOfAccounts({ accounts, setDeleteData }) {
+export default function ListOfAccounts({ accounts, setDeleteModalData }) {
 
-    const destroy = c => setDeleteData(c);
+    
+    const destroy = c => setDeleteModalData(c);
 
     return (
         <>

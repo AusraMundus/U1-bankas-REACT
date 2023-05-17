@@ -24,8 +24,8 @@ export default function AddNewAccount({ setCreateData }) {
                 <div className="m-3">
                     <form>
                         <fieldset className="fieldset-add-new">
-                            <input className="fieldset-input-add-new" type="text" id="name" ref={nameRef} placeholder="Name" required />
-                            <input className="fieldset-input-add-new" type="text" id="surname" ref={surnameRef} placeholder="Surname" required />
+                            <input className="fieldset-input" type="text" id="name" ref={nameRef} placeholder="Name" required />
+                            <input className="fieldset-input" type="text" id="surname" ref={surnameRef} placeholder="Surname" required />
                         </fieldset>
                     </form>
                     <button className="button-add" onClick={save}>Add</button>
