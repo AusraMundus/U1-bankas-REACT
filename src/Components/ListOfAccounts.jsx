@@ -5,14 +5,13 @@ export default function ListOfAccounts() {
 
     return (
         <>
-            <h2>Sąskaitų sąrašas</h2>
             <ul className="no-bullets">
                 <li>
                     <div>
                         <div className="accountsList">
                             <p>Vardas</p>
                             <p>Pavardė</p>
-                            <p>Balansas</p>
+                            <p>Balansas<span>€</span></p>
                             <form>
                                 <fieldset className="fieldset">
                                     <input type="number" className="fieldset-input" />
