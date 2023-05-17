@@ -14,6 +14,7 @@ function App() {
   const [listUpdate, setListUpdate] = useState(Date.now());
   const [createData, setCreateData] = useState(null);
   const [accounts, setAccounts] = useState(null);
+  const [deleteData, setDeleteData] = useState(null);
 
   //R read
   useEffect(_ => {
@@ -30,6 +31,14 @@ function App() {
     setListUpdate(Date.now());
   }, [createData]);
 
+  //D deleate
+  useEffect(_ => {
+    if (null === deleteData) {
+        return;
+    }
+    crudDelete(KEY, deleteData.id);
+    setListUpdate(Date.now());
+  }, [deleteData]);
 
   return (
     <div className="App">
@@ -37,11 +46,12 @@ function App() {
         <h1>Easy Way To Manage Bank Accounts</h1>
         <div className="container">
           <div className="row">
-            <div className="col-8">
+            <div className="col-9">
               <ListOfAccounts 
-              accounts={accounts}/>
+              accounts={accounts}
+              setDeleteData={setDeleteData}/>
             </div>
-            <div className="col-4">
+            <div className="col-3">
               <AddNewAccount setCreateData={setCreateData} />
             </div>
           </div>

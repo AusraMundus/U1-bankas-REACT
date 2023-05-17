@@ -1,7 +1,6 @@
-import { useState } from "react"
+export default function ListOfAccounts({ accounts, setDeleteData }) {
 
-export default function ListOfAccounts({ accounts }) {
-
+    const destroy = c => setDeleteData(c);
 
     return (
         <>
@@ -18,7 +17,7 @@ export default function ListOfAccounts({ accounts }) {
                                                 <div className="account-name">
                                                     <p>{c.Name}</p>
                                                     <p>{c.Surname}</p>
-                                                    <p>{c.Balance}€</p>
+                                                    <p>{c.Balance}<span>€</span></p>
                                                 </div>
                                                 <form>
                                                     <fieldset className="fieldset">
@@ -29,7 +28,7 @@ export default function ListOfAccounts({ accounts }) {
                                                         </div>
                                                     </fieldset>
                                                 </form>
-                                                <button className="button-del">Delete account</button>
+                                                <button className="button-del" onClick={_ => destroy(c)}>Delete account</button>
                                             </div>
                                         </li>))
                                     : 'No accounts yet'
