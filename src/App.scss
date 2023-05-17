@@ -10,23 +10,27 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #ABE8E5;
 }
 
 h1 {
-  margin-bottom: 50px;
-  padding: 20px 0;
-  border-bottom: 3px solid white;
-}
-
-h2 {
-  margin-bottom: 30px;
+  margin: 50px;
+  color: #ABE8E5;
 }
 
 p {
-  font-size: 15px;
+  font-size: 20px;
   padding: 10px 25px;
   margin: auto;
+}
+
+.card {
+  background-color: #102A2D;
+  border-color: #ABE8E5;
+}
+
+.card-header {
+  border-bottom-color: #ABE8E5;
 }
 
 ul.no-bullets {
@@ -35,14 +39,18 @@ ul.no-bullets {
   margin: 0; /* Remove margins */
 }
 
-.accountsList {
+.accounts-list {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 20px;
   padding: 30px 0;
-  border-top: 1px solid #408c99;
-  border-bottom: 1px solid #408c99;
+}
+
+.account-name {
+  display: flex;
+  justify-content: space-between;
 }
 
 .fieldset {
@@ -51,23 +59,34 @@ ul.no-bullets {
   gap: 10px;
 }
 
+.fieldset-add-new {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
 .fieldset-input {
   background-color: #ABE8E5;
-  border-radius: 30px;
+  border-radius: 5px;
   border: none;
   text-align: center;
   font-size: 15px;
-  font-weight: bolder;
   padding: 10px;
-  max-width: 120px;
+  max-width: 100%;
+}
+
+.fieldset-input-add-new {
+  background-color: #ABE8E5;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  font-size: 15px;
+  padding: 10px;
+  max-width: 100%;
 }
 
 .fieldset-buttons {
   display: flex;
   flex-direction: column;
-}
-
-.modal {
-  display: block;
-  background-color: #ABE8E5;
 }

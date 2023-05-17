@@ -34,14 +34,20 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-
-        <h1>Easy Way To Manage Accounts</h1>
-        <h2>Sąskaitų sąrašas</h2>
-        <ListOfAccounts />
-        <button className="button-add" setCreateData={setCreateData} >Pridėti naują sąskaitą</button>
-        <AddNewAccount setCreateData={setCreateData} />
+        <h1>Easy Way To Manage Bank Accounts</h1>
+        <div className="container">
+          <div className="row">
+            <div className="col-8">
+              <ListOfAccounts />
+            </div>
+            <div className="col-4">
+              <AddNewAccount setCreateData={setCreateData} />
+            </div>
+          </div>
+        </div>
       </header>
-    </div>
+
+    </div >
   );
 }
 
