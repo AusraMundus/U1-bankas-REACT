@@ -36,12 +36,10 @@ function App() {
       <header className="App-header">
 
         <h1>Easy Way To Manage Accounts</h1>
-
         <h2>Sąskaitų sąrašas</h2>
-
         <ListOfAccounts />
-
         <button className="button-add" setCreateData={setCreateData} >Pridėti naują sąskaitą</button>
+        <AddNewAccount setCreateData={setCreateData} />
       </header>
     </div>
   );
