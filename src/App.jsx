@@ -17,10 +17,11 @@ function App() {
   const [accounts, setAccounts] = useState(null);
   const [deleteData, setDeleteData] = useState(null);
   const [deleteModalData, setDeleteModalData] = useState(null);
+  const [sort, setSort] = useState('default');
 
   //R read
   useEffect(_ => {
-    setAccounts(crudRead(KEY));
+    setAccounts(crudRead(KEY).map((c, i) => ({...c, row: i, show: true})));
   }, [listUpdate]);
 
 
@@ -36,11 +37,32 @@ function App() {
   //D deleate
   useEffect(_ => {
     if (null === deleteData) {
-        return;
+      return;
     }
     crudDelete(KEY, deleteData.id);
     setListUpdate(Date.now());
   }, [deleteData]);
+
+  useEffect(() => {
+    if (sort === 'default') {
+      setAccounts(c => [...c].sort((a, b) => a.row - b.row));
+    } else if (sort === 'up') {
+      setAccounts(c => [...c].sort((a, b) => a.Surname.localeCompare(b.Surname)));
+    } else {
+      setAccounts(c => [...c].sort((b, a) => a.Surname.localeCompare(b.Surname)));
+    }
+
+  }, [sort]);
+
+  const doSort = _ => {
+    setSort(s => {
+        switch (s) {
+            case 'default': return 'up';
+            case 'up': return 'down';
+            default: return 'default'
+        }
+    });
+}
 
   return (
     <div className="App">
@@ -48,24 +70,26 @@ function App() {
         <h1>Easy Way To Manage Bank Accounts</h1>
         <div className="container">
           <div className="row">
-            
-            <div className="col-9">
-              <ListOfAccounts 
-              accounts={accounts}
-              setDeleteModalData={setDeleteModalData}
+
+            <div className="col-8">
+              <ListOfAccounts
+                accounts={accounts}
+                setDeleteModalData={setDeleteModalData}
+                sort={sort}
+                doSort={doSort}
               />
             </div>
-            
-            <div className="col-3">
+
+            <div className="col-4">
               <AddNewAccount setCreateData={setCreateData} />
             </div>
           </div>
         </div>
         <DeleteAccount
-                deleteModalData={deleteModalData}
-                setDeleteModalData={setDeleteModalData}
-                setDeleteData={setDeleteData}
-            />
+          deleteModalData={deleteModalData}
+          setDeleteModalData={setDeleteModalData}
+          setDeleteData={setDeleteData}
+        />
       </header>
 
     </div >

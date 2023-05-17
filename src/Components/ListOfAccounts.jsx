@@ -1,4 +1,4 @@
-export default function ListOfAccounts({ accounts, setDeleteModalData }) {
+export default function ListOfAccounts({ accounts, setDeleteModalData, doSort, sort }) {
 
     
     const destroy = c => setDeleteModalData(c);
@@ -6,8 +6,10 @@ export default function ListOfAccounts({ accounts, setDeleteModalData }) {
     return (
         <>
             <div className="card m-5">
-                <h5 className="card-header list-header">Accounts</h5>
+                <h2 className="card-header list-header">Accounts</h2>
                 <div className="card-body">
+                    <p className="sort">Sort by Surname<span className={'sort-button ' + sort} onClick={doSort}></span></p>
+                    
                     <ul className="no-bullets list-group list-group-flush">
                         {
                             accounts
