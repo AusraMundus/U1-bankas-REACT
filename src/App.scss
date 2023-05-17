@@ -116,15 +116,15 @@ ul.no-bullets {
     justify-content: center;
 
     &:after {
+      content: '\25A2'; // square
+    }
+
+    &.asc::after {
       content: '\25B3'; // up-pointing triangle
     }
 
     &.default::after {
-      transform: rotate(180deg); // down-pointing triangle
-    }
-
-    &.down::after {
-      content: '\25A2'; // square
+      content: '\25BD'; // down-pointing triangle
     }
   }
 }

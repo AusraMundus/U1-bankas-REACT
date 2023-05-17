@@ -45,11 +45,11 @@ function App() {
 
   useEffect(() => {
     if (sort === 'default') {
-      setAccounts(c => [...c].sort((a, b) => a.row - b.row));
-    } else if (sort === 'up') {
-      setAccounts(c => [...c].sort((a, b) => a.Surname.localeCompare(b.Surname)));
+      setAccounts(c => [...c].sort((a, b) => a.row - b.row)); // rusiavimas
+    } else if (sort === 'asc') {
+      setAccounts(c => [...c].sort((a, b) => a.Surname.localeCompare(b.Surname))); // Ascending, nuo A iki Z
     } else {
-      setAccounts(c => [...c].sort((b, a) => a.Surname.localeCompare(b.Surname)));
+      setAccounts(c => [...c].sort((b, a) => a.Surname.localeCompare(b.Surname))); // Descending, nuo Z iki A
     }
 
   }, [sort]);
@@ -57,8 +57,8 @@ function App() {
   const doSort = _ => {
     setSort(s => {
         switch (s) {
-            case 'default': return 'up';
-            case 'up': return 'down';
+            case 'default': return 'asc';
+            case 'asc': return 'dsc';
             default: return 'default'
         }
     });
