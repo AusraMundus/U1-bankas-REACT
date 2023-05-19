@@ -7,7 +7,6 @@ import ListOfAccounts from './Components/ListOfAccounts';
 import AddNewAccount from './Components/AddNewAccount';
 import DeleteAccount from './Components/DeleteAccount';
 
-
 const KEY = 'myAccounts';
 
 function App() {
@@ -18,10 +17,11 @@ function App() {
   const [deleteData, setDeleteData] = useState(null);
   const [deleteModalData, setDeleteModalData] = useState(null);
   const [sort, setSort] = useState('default');
+  const [editData, setEditData] = useState(null);
 
   //R read
   useEffect(_ => {
-    setAccounts(crudRead(KEY).map((c, i) => ({...c, row: i, show: true})));
+    setAccounts(crudRead(KEY).map((c, i) => ({ ...c, row: i, show: true })));
   }, [listUpdate]);
 
 
@@ -33,6 +33,15 @@ function App() {
     crudCreate(KEY, createData);
     setListUpdate(Date.now());
   }, [createData]);
+
+  //U update
+  useEffect(_ => {
+    if (null === editData) {
+      return;
+    }
+    crudEdit(KEY, editData, editData.id);
+    setListUpdate(Date.now());
+  }, [editData]);
 
   //D deleate
   useEffect(_ => {
@@ -51,18 +60,17 @@ function App() {
     } else {
       setAccounts(c => [...c].sort((b, a) => a.Surname.localeCompare(b.Surname))); // Descending, nuo Z iki A
     }
-
   }, [sort]);
 
   const doSort = _ => {
     setSort(s => {
-        switch (s) {
-            case 'default': return 'asc';
-            case 'asc': return 'dsc';
-            default: return 'default'
-        }
+      switch (s) {
+        case 'default': return 'asc';
+        case 'asc': return 'dsc';
+        default: return 'default'
+      }
     });
-}
+  }
 
   return (
     <div className="App">
@@ -74,9 +82,10 @@ function App() {
             <div className="col-8">
               <ListOfAccounts
                 accounts={accounts}
-                setDeleteModalData={setDeleteModalData}
                 sort={sort}
                 doSort={doSort}
+                setEditData={setEditData } 
+                setDeleteModalData={setDeleteModalData}
               />
             </div>
 
@@ -91,9 +100,7 @@ function App() {
           setDeleteData={setDeleteData}
         />
       </header>
-
     </div >
-
   );
 }
 

@@ -1,6 +1,7 @@
-export default function ListOfAccounts({ accounts, setDeleteModalData, doSort, sort }) {
+import MoneyBalance from './MoneyBalance';
 
-    
+export default function ListOfAccounts({ accounts, setDeleteModalData, doSort, sort, setEditData }) {
+
     const destroy = c => setDeleteModalData(c);
 
     return (
@@ -9,7 +10,7 @@ export default function ListOfAccounts({ accounts, setDeleteModalData, doSort, s
                 <h2 className="card-header list-header">Accounts</h2>
                 <div className="card-body">
                     <p className="sort">Sort by Surname<span className={'sort-button ' + sort} onClick={doSort}></span></p>
-                    
+
                     <ul className="no-bullets list-group list-group-flush">
                         {
                             accounts
@@ -20,17 +21,11 @@ export default function ListOfAccounts({ accounts, setDeleteModalData, doSort, s
                                                 <div className="account-name">
                                                     <p>{c.Name}</p>
                                                     <p>{c.Surname}</p>
-                                                    <p>{c.Balance}<span>€</span></p>
+                                                    <p>{c.Balance}<span> €</span></p>
                                                 </div>
-                                                <form>
-                                                    <fieldset className="fieldset">
-                                                        <input type="number" className="fieldset-input" />
-                                                        <div className="fieldset-buttons">
-                                                            <button className="button">Add money</button>
-                                                            <button className="button">Withdraw money</button>
-                                                        </div>
-                                                    </fieldset>
-                                                </form>
+                                                <div>
+                                                <MoneyBalance setEditData={setEditData} />
+                                                </div>
                                                 <button className="button-del" onClick={_ => destroy(c)}>Delete account</button>
                                             </div>
                                         </li>))

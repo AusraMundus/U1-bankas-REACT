@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react"
+import { useRef } from 'react';
 
 export default function AddNewAccount({ setCreateData }) {
 
@@ -24,7 +24,9 @@ export default function AddNewAccount({ setCreateData }) {
                 <div className="m-3">
                     <form>
                         <fieldset className="fieldset-add-new">
+                            <label htmlFor="name" style={{display:'none'}}></label>
                             <input className="fieldset-input" type="text" id="name" ref={nameRef} placeholder="Name" required />
+                            <label htmlFor="surname" style={{display:'none'}}></label>
                             <input className="fieldset-input" type="text" id="surname" ref={surnameRef} placeholder="Surname" required />
                         </fieldset>
                     </form>
