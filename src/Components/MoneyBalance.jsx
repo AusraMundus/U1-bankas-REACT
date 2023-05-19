@@ -1,30 +1,38 @@
 import { useRef } from "react";
 
-export default function MoneyBalance({ setEditData, c }) {
+export default function MoneyBalance({ setEditData, account }) {
 
-    const moneyFlow = useRef(null);
+    const moneyFlow = useRef(0);
 
     const plus = _ => {
         const money = parseFloat(moneyFlow.current.value);
-        const newBalancePlus = c.Balance + money;
-        setEditData({ ...c, Balance: newBalancePlus });
-        moneyFlow.current.value = null;
+        if (isNaN(money) || money < 0) {
+            setEditData({ ...account, Balance: account.Balance });
+        } else {
+            const newBalancePlus = account.Balance + money;
+            setEditData({ ...account, Balance: newBalancePlus });
+            moneyFlow.current.value = 0;
+        }
     };
 
     const minus = _ => {
         const money = parseFloat(moneyFlow.current.value);
-        const newBalanceMinus = c.Balance - money;
-        if (newBalanceMinus >= 0) {
-            setEditData({ ...c, Balance: newBalanceMinus });
-            moneyFlow.current.value = null;
-        };
+        if (isNaN(money) || money < 0) {
+            setEditData({ ...account, Balance: account.Balance });
+        } else {
+            const newBalanceMinus = account.Balance - money;
+            if (newBalanceMinus >= 0) {
+                setEditData({ ...account, Balance: newBalanceMinus });
+                moneyFlow.current.value = 0;
+            };
+        }
     };
 
     return (
         <form>
             <fieldset className="fieldset">
                 <label htmlFor="moneyFlow" style={{ display: 'none' }}></label>
-                <input ref={moneyFlow} type="text" id="moneyFlow" className="fieldset-input" />
+                <input ref={moneyFlow} type="number" id="moneyFlow" className="fieldset-input" placeholder="Enter the amount"/>
                 <div className="fieldset-buttons">
                     <button className="button" onClick={plus}>Add money</button>
                     <button className="button" onClick={minus}>Withdraw money</button>

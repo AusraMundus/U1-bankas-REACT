@@ -20,11 +20,11 @@ export default function ListOfAccounts({ accounts, setDeleteModalData, doSort, s
                                             <div className="accounts-list">
                                                 <div className="account-name">
                                                     <p>{c.Name}</p>
-                                                    <p>{c.Surname}</p>
+                                                    <p>{c.LastName}</p>
                                                     <p>{c.Balance}<span> €</span></p>
                                                 </div>
                                                 <div>
-                                                <MoneyBalance setEditData={setEditData} />
+                                                <MoneyBalance account={c} setEditData={setEditData} />
                                                 </div>
                                                 <button className="button-del" onClick={_ => destroy(c)}>Delete account</button>
                                             </div>

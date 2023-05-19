@@ -1,21 +1,26 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 
 export default function AddNewAccount({ setCreateData }) {
 
-    const nameRef = useRef(null);
-    const surnameRef = useRef(null);
+    const[name,setName] = useState('');
+    const[lastName, setLastName] = useState('');
 
-    const save = _ => {
-
-        const name = nameRef.current.value;
-        const surname = surnameRef.current.value;
-
-        setCreateData({
+    const save = (event) => {
+        event.preventDefault();
+    
+        if (/^[A-Za-z]+$/.test(name) && /^[A-Za-z]+$/.test(lastName)) {
+          setCreateData({
             Name: name,
-            Surname: surname,
-            Balance: 0
-        });
-    };
+            LastName: lastName,
+            Balance: 0,
+          });
+    
+          setName('');
+          setLastName('');
+        } else {
+          alert('Please fill in both the name and last name fields');
+        }
+      };
 
     return (
         <>
@@ -25,9 +30,9 @@ export default function AddNewAccount({ setCreateData }) {
                     <form>
                         <fieldset className="fieldset-add-new">
                             <label htmlFor="name" style={{display:'none'}}></label>
-                            <input className="fieldset-input" type="text" id="name" ref={nameRef} placeholder="Name" required />
-                            <label htmlFor="surname" style={{display:'none'}}></label>
-                            <input className="fieldset-input" type="text" id="surname" ref={surnameRef} placeholder="Surname" required />
+                            <input className="fieldset-input" type="text" id="name" placeholder="Name" required value={name} onChange={e => setName(e.target.value)} />
+                            <label htmlFor="lastName" style={{display:'none'}}></label>
+                            <input value={lastName} onChange={e => setLastName(e.target.value)} className="fieldset-input" type="text" id="lastName" placeholder="Last Name" required />
                         </fieldset>
                     </form>
                     <button className="button-add" onClick={save}>Add</button>
