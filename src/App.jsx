@@ -56,9 +56,9 @@ function App() {
     if (sort === 'default') {
       setAccounts(c => [...c].sort((a, b) => a.row - b.row)); // rusiavimas
     } else if (sort === 'asc') {
-      setAccounts(c => [...c].sort((a, b) => a.Surname.localeCompare(b.Surname))); // Ascending, nuo A iki Z
+      setAccounts(c => [...c].sort((a, b) => a.LastName.localeCompare(b.LastName))); // Ascending, nuo A iki Z
     } else {
-      setAccounts(c => [...c].sort((b, a) => a.Surname.localeCompare(b.Surname))); // Descending, nuo Z iki A
+      setAccounts(c => [...c].sort((b, a) => a.LastName.localeCompare(b.LastName))); // Descending, nuo Z iki A
     }
   }, [sort]);
 

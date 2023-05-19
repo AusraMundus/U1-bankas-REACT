@@ -6,12 +6,15 @@ export default function MoneyBalance({ setEditData, account }) {
 
     const plus = _ => {
         const money = parseFloat(moneyFlow.current.value);
-        if (isNaN(money) || money < 0) {
+        if (isNaN(money) || money <= 0) {
             setEditData({ ...account, Balance: account.Balance });
+            alert('Please enter the amount. It cannot be negative or zero.');
+
         } else {
             const newBalancePlus = account.Balance + money;
             setEditData({ ...account, Balance: newBalancePlus });
-            moneyFlow.current.value = 0;
+            moneyFlow.current.value = null;
+            // alert('Money was added to the account.');
         }
     };
 
@@ -19,12 +22,18 @@ export default function MoneyBalance({ setEditData, account }) {
         const money = parseFloat(moneyFlow.current.value);
         if (isNaN(money) || money < 0) {
             setEditData({ ...account, Balance: account.Balance });
-        } else {
+            alert('Please enter the amount. It cannot be negative or zero.');
+        }
+
+        if (money > account.Balance) {
+            setEditData({ ...account, Balance: account.Balance });
+            alert('You cannot withdraw more than your balance');
+        }
+        else {
             const newBalanceMinus = account.Balance - money;
-            if (newBalanceMinus >= 0) {
-                setEditData({ ...account, Balance: newBalanceMinus });
-                moneyFlow.current.value = 0;
-            };
+            setEditData({ ...account, Balance: newBalanceMinus });
+            moneyFlow.current.value = null;
+            // alert('The money was withdrawn from the account.');
         }
     };
 
@@ -32,7 +41,7 @@ export default function MoneyBalance({ setEditData, account }) {
         <form>
             <fieldset className="fieldset">
                 <label htmlFor="moneyFlow" style={{ display: 'none' }}></label>
-                <input ref={moneyFlow} type="number" id="moneyFlow" className="fieldset-input" placeholder="Enter the amount"/>
+                <input ref={moneyFlow} type="number" id="moneyFlow" className="fieldset-input" placeholder="Enter the amount" />
                 <div className="fieldset-buttons">
                     <button className="button" onClick={plus}>Add money</button>
                     <button className="button" onClick={minus}>Withdraw money</button>

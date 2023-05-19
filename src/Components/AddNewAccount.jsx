@@ -18,7 +18,7 @@ export default function AddNewAccount({ setCreateData }) {
           setName('');
           setLastName('');
         } else {
-          alert('Please fill in both the name and last name fields');
+          alert('Please fill in the Name and Last name fields. The characters used must be letters.');
         }
       };
 

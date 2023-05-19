@@ -19,7 +19,7 @@ export default function DeleteAccount({ deleteModalData, setDeleteModalData, set
                             <button type="button" className="btn btn-close" onClick={_ => setDeleteModalData(null)}></button>
                         </div>
                         <div className="modal-body">
-                            <p>The account cannot be deleted because there are funds in it.</p>
+                            <p>The account cannot be deleted because there is money in it.</p>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="button" onClick={_ => setDeleteModalData(null)}>OK</button>

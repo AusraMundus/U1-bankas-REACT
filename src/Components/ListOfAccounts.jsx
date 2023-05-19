@@ -9,7 +9,7 @@ export default function ListOfAccounts({ accounts, setDeleteModalData, doSort, s
             <div className="card m-5">
                 <h2 className="card-header list-header">Accounts</h2>
                 <div className="card-body">
-                    <p className="sort">Sort by Surname<span className={'sort-button ' + sort} onClick={doSort}></span></p>
+                    <p className="sort">Sort by Last Name<span className={'sort-button ' + sort} onClick={doSort}></span></p>
 
                     <ul className="no-bullets list-group list-group-flush">
                         {
