@@ -6,7 +6,7 @@ export default function ListOfAccounts({ accounts, setDeleteModalData, doSort, s
 
     return (
         <>
-            <div className="card m-5">
+            <div className="card">
                 <h2 className="card-header list-header">Accounts</h2>
                 <div className="card-body">
                     <p className="sort">Sort by Last Name<span className={'sort-button ' + sort} onClick={doSort}></span></p>

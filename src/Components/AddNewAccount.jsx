@@ -24,7 +24,7 @@ export default function AddNewAccount({ setCreateData }) {
 
     return (
         <>
-            <div className="card m-5">
+            <div className="card">
                 <h2 className="card-header">Add New Account</h2>
                 <div className="m-3">
                     <form>
