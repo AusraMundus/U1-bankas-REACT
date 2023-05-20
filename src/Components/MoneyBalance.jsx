@@ -8,7 +8,7 @@ export default function MoneyBalance({ setEditData, account }) {
         const money = parseFloat(moneyFlow.current.value);
         if (isNaN(money) || money <= 0) {
             setEditData({ ...account, Balance: account.Balance });
-            alert('Please enter the amount. It cannot be negative or zero.');
+            alert('Please enter a valid positive amount.');
 
         } else {
             const newBalancePlus = account.Balance + money;
@@ -20,16 +20,15 @@ export default function MoneyBalance({ setEditData, account }) {
 
     const minus = _ => {
         const money = parseFloat(moneyFlow.current.value);
-        if (isNaN(money) || money < 0) {
+        if (money === undefined || money === null) {
+            alert('Please enter the amount.');
+        } else if (isNaN(money) || money <= 0) {
             setEditData({ ...account, Balance: account.Balance });
-            alert('Please enter the amount. It cannot be negative or zero.');
-        }
-
-        if (money > account.Balance) {
+            alert('Please enter a valid positive amount.');
+        } else if (money > account.Balance) {
             setEditData({ ...account, Balance: account.Balance });
-            alert('You cannot withdraw more than your balance');
-        }
-        else {
+            alert('You cannot withdraw more than your balance.');
+        } else {
             const newBalanceMinus = account.Balance - money;
             setEditData({ ...account, Balance: newBalanceMinus });
             moneyFlow.current.value = null;
