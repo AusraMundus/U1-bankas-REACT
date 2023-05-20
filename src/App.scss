@@ -109,7 +109,7 @@ ul.no-bullets {
   .sort-button {
     height: 30px;
     cursor: pointer;
-    color: #f7f7f7;
+    color: #ABE8E5;
     display: inline-flex;
     align-items: center;
     padding-left: 10px;
@@ -125,5 +125,23 @@ ul.no-bullets {
     &.default::after {
       content: '\25BD'; // down-pointing triangle
     }
+  }
+}
+
+.messages {
+  position: fixed;
+  top: 40px;
+  right: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  .message {
+      padding: 15px 30px;
+      background-color: #f7f7f7;
+      border: 1px solid #ABE8E5;
+      border-radius: 5px;
+      font-size: 15px;
+      color: #102A2D;
   }
 }

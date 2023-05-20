@@ -6,6 +6,8 @@ import { crudCreate, crudDelete, crudEdit, crudRead } from './Functions/localSto
 import ListOfAccounts from './Components/ListOfAccounts';
 import AddNewAccount from './Components/AddNewAccount';
 import DeleteAccount from './Components/DeleteAccount';
+import Messages from './Components/Messages';
+import { v4 as uuidv4 } from 'uuid';
 
 const KEY = 'myAccounts';
 
@@ -18,6 +20,7 @@ function App() {
   const [deleteModalData, setDeleteModalData] = useState(null);
   const [sort, setSort] = useState('default');
   const [editData, setEditData] = useState(null);
+  const [messages, setMessages] = useState([]);
 
   //R read
   useEffect(_ => {
@@ -32,6 +35,7 @@ function App() {
     }
     crudCreate(KEY, createData);
     setListUpdate(Date.now());
+    msg('New account was added', 'info');
   }, [createData]);
 
   //U update
@@ -72,6 +76,17 @@ function App() {
     });
   }
 
+  const msg = (text, type) => {
+    const id = uuidv4();
+    const message = {
+        id,
+        text,
+        type
+    }
+    setMessages(m => [...m, message]);
+    setTimeout(_ => setMessages(m => m.filter(m => m.id !== id)), 5000);
+}
+
   return (
     <div className="App">
       <header className="App-header">
@@ -99,6 +114,7 @@ function App() {
           setDeleteModalData={setDeleteModalData}
           setDeleteData={setDeleteData}
         />
+        <Messages messages={messages}/>
       </header>
     </div >
   );
