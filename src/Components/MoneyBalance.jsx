@@ -6,10 +6,14 @@ export default function MoneyBalance({ setEditData, account }) {
 
     const plus = _ => {
         const money = parseFloat(moneyFlow.current.value);
-        if (isNaN(money) || money <= 0) {
+        if (money === undefined || money === null) {
+            alert('Please enter the amount.');
+        } else if (isNaN(money) || money <= 0) {
             setEditData({ ...account, Balance: account.Balance });
             alert('Please enter a valid positive amount.');
-
+        } else if (!/^\d+(\.\d{1,2})?$/.test(money)) {
+            setEditData({ ...account, Balance: account.Balance });
+            alert('Please enter a valid positive amount with up to two decimal places.');
         } else {
             const newBalancePlus = account.Balance + money;
             setEditData({ ...account, Balance: newBalancePlus });
@@ -25,6 +29,9 @@ export default function MoneyBalance({ setEditData, account }) {
         } else if (isNaN(money) || money <= 0) {
             setEditData({ ...account, Balance: account.Balance });
             alert('Please enter a valid positive amount.');
+        } else if (!/^\d+(\.\d{1,2})?$/.test(money)) {
+            setEditData({ ...account, Balance: account.Balance });
+            alert('Please enter a valid positive amount with up to two decimal places.');
         } else if (money > account.Balance) {
             setEditData({ ...account, Balance: account.Balance });
             alert('You cannot withdraw more than your balance.');
