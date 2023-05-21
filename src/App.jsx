@@ -35,7 +35,7 @@ function App() {
     }
     crudCreate(KEY, createData);
     setListUpdate(Date.now());
-    msg('New account was added', 'info');
+    msg('New account was added.', 'info');
   }, [createData]);
 
   //U update
@@ -56,13 +56,14 @@ function App() {
     setListUpdate(Date.now());
   }, [deleteData]);
 
+  // Sort
   useEffect(() => {
     if (sort === 'default') {
-      setAccounts(c => [...c].sort((a, b) => a.row - b.row)); // rusiavimas
+      setAccounts(c => [...c].sort((a, b) => a.row - b.row)); // Sorting
     } else if (sort === 'asc') {
-      setAccounts(c => [...c].sort((a, b) => a.LastName.localeCompare(b.LastName))); // Ascending, nuo A iki Z
+      setAccounts(c => [...c].sort((a, b) => a.LastName.localeCompare(b.LastName))); // Ascending, from A to Z
     } else {
-      setAccounts(c => [...c].sort((b, a) => a.LastName.localeCompare(b.LastName))); // Descending, nuo Z iki A
+      setAccounts(c => [...c].sort((b, a) => a.LastName.localeCompare(b.LastName))); // Descending, from Z to A
     }
   }, [sort]);
 
@@ -76,16 +77,17 @@ function App() {
     });
   }
 
+  // Messages
   const msg = (text, type) => {
     const id = uuidv4();
     const message = {
-        id,
-        text,
-        type
+      id,
+      text,
+      type
     }
     setMessages(m => [...m, message]);
     setTimeout(_ => setMessages(m => m.filter(m => m.id !== id)), 5000);
-}
+  }
 
   return (
     <div className="App">
@@ -99,13 +101,16 @@ function App() {
                 accounts={accounts}
                 sort={sort}
                 doSort={doSort}
-                setEditData={setEditData } 
+                setEditData={setEditData}
                 setDeleteModalData={setDeleteModalData}
+                msg={msg}
               />
             </div>
 
             <div className="col-3">
-              <AddNewAccount setCreateData={setCreateData} />
+              <AddNewAccount
+                setCreateData={setCreateData}
+                msg={msg} />
             </div>
           </div>
         </div>
@@ -114,7 +119,7 @@ function App() {
           setDeleteModalData={setDeleteModalData}
           setDeleteData={setDeleteData}
         />
-        <Messages messages={messages}/>
+        <Messages messages={messages} />
       </header>
     </div >
   );

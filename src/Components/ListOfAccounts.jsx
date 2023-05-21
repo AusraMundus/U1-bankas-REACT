@@ -1,6 +1,6 @@
 import MoneyBalance from './MoneyBalance';
 
-export default function ListOfAccounts({ accounts, setDeleteModalData, doSort, sort, setEditData }) {
+export default function ListOfAccounts({ accounts, setDeleteModalData, doSort, sort, setEditData, msg }) {
 
     const destroy = c => setDeleteModalData(c);
 
@@ -24,7 +24,10 @@ export default function ListOfAccounts({ accounts, setDeleteModalData, doSort, s
                                                     <p>{c.Balance}<span> €</span></p>
                                                 </div>
                                                 <div>
-                                                <MoneyBalance account={c} setEditData={setEditData} />
+                                                    <MoneyBalance
+                                                        account={c}
+                                                        setEditData={setEditData}
+                                                        msg={msg} />
                                                 </div>
                                                 <button className="button-del" onClick={_ => destroy(c)}>Delete account</button>
                                             </div>
