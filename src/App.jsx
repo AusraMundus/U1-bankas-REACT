@@ -91,11 +91,14 @@ function App() {
 
   return (
     <div className="App">
+
       <header className="App-header">
         <h1>Easy Way To Manage Bank Accounts</h1>
+      </header>
+
+      <main className="App-main">
         <div className="container">
           <div className="row">
-
             <div className="col-9">
               <ListOfAccounts
                 accounts={accounts}
@@ -106,7 +109,6 @@ function App() {
                 msg={msg}
               />
             </div>
-
             <div className="col-3">
               <AddNewAccount
                 setCreateData={setCreateData}
@@ -120,7 +122,8 @@ function App() {
           setDeleteData={setDeleteData}
         />
         <Messages messages={messages} />
-      </header>
+      </main>
+      
     </div >
   );
 }

@@ -9,6 +9,7 @@ export default function ListOfAccounts({ accounts, setDeleteModalData, doSort, s
             <div className="card">
                 <h2 className="card-header list-header">Accounts</h2>
                 <div className="card-body">
+
                     <p className="sort">Sort by Last Name<span className={'sort-button ' + sort} onClick={doSort}></span></p>
 
                     <ul className="no-bullets list-group list-group-flush">
@@ -18,18 +19,22 @@ export default function ListOfAccounts({ accounts, setDeleteModalData, doSort, s
                                     ? accounts.map(c => (
                                         <li key={c.id}>
                                             <div className="accounts-list">
-                                                <div className="account-name">
-                                                    <p>{c.Name}</p>
-                                                    <p>{c.LastName}</p>
-                                                    <p>{c.Balance}<span> €</span></p>
+                                                <div className="account-data">
+                                                    <p className="account-data-details">{c.Name}</p>
+                                                    <p className="account-data-details">{c.LastName}</p>
+                                                    <p className="account-data-details-money">{c.Balance}<span> €</span></p>
                                                 </div>
-                                                <div>
-                                                    <MoneyBalance
-                                                        account={c}
-                                                        setEditData={setEditData}
-                                                        msg={msg} />
+                                                <div style={{display: 'flex', flexDirection: 'row', gap: '10px', alignItems: 'center'}}>
+                                                    <div>
+                                                        <MoneyBalance
+                                                            account={c}
+                                                            setEditData={setEditData}
+                                                            msg={msg} />
+                                                    </div>
+                                                    <div>
+                                                        <button className="button-del" onClick={_ => destroy(c)}>Delete account</button>
+                                                    </div>
                                                 </div>
-                                                <button className="button-del" onClick={_ => destroy(c)}>Delete account</button>
                                             </div>
                                         </li>))
                                     : 'No accounts yet'

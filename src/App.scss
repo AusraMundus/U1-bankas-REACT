@@ -4,6 +4,17 @@
 
 .App-header {
   background-color: #102A2D;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #ABE8E5;
+  padding: 20px 0;
+}
+
+.App-main {
+  background-color: #102A2D;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,9 +34,9 @@ h2 {
 }
 
 p {
-  font-size: 20px;
-  padding: 10px 25px;
+  font-size: 17px;
   margin: auto;
+  margin-left: 0;
 }
 
 .card {
@@ -43,18 +54,40 @@ ul.no-bullets {
   margin: 0;
 }
 
-.accounts-list {
+li {
   display: flex;
   flex-direction: column;
+}
+
+.accounts-list {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 20px;
   padding: 30px 0;
 }
 
-.account-name {
+.account-data {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.account-data-details {
+  width: 140px;
+  text-align: start;
+  border: 1px solid #408c99;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.account-data-details-money {
+  width: 90px;
+  text-align: end;
+  border: 1px solid #408c99;
+  border-radius: 5px;
+  padding: 8px;
 }
 
 .fieldset {
@@ -78,6 +111,17 @@ ul.no-bullets {
   font-size: 15px;
   padding: 10px;
   max-width: 100%;
+
+}
+
+.fieldset-input-money {
+  background-color: #b9ece9;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  font-size: 15px;
+  padding: 10px;
+  width: 150px;
 }
 
 .fieldset-buttons {
@@ -100,7 +144,7 @@ ul.no-bullets {
 }
 
 .sort {
-  border: 1px solid #ABE8E5;
+  border: 1px solid #408c99;
   border-radius: 5px;
   width: fit-content;
   font-size: 15px;
@@ -109,7 +153,7 @@ ul.no-bullets {
   .sort-button {
     height: 30px;
     cursor: pointer;
-    color: #ABE8E5;
+    color: #408c99;
     display: inline-flex;
     align-items: center;
     padding-left: 10px;
@@ -137,11 +181,11 @@ ul.no-bullets {
   gap: 5px;
 
   .message {
-      padding: 15px 30px;
-      background-color: #f7f7f7;
-      border: 1px solid #ABE8E5;
-      border-radius: 5px;
-      font-size: 15px;
-      color: #102A2D;
+    padding: 15px 30px;
+    background-color: #f7f7f7;
+    border: 1px solid #ABE8E5;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #102A2D;
   }
 }

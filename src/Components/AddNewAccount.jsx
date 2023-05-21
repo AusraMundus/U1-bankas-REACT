@@ -17,7 +17,7 @@ export default function AddNewAccount({ setCreateData, msg }) {
       setLastName(''); // Clean the window after submit
 
     } else {
-      msg('Please fill in the fields. The characters used must be letters.');
+      msg('Please fill out the fields. The characters used must be letters.');
     }
   };
 

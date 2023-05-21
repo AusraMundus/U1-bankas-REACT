@@ -58,7 +58,7 @@ export default function MoneyBalance({ setEditData, account, msg }) {
         <form>
             <fieldset className="fieldset">
                 <label htmlFor="moneyFlow" style={{ display: 'none' }}></label>
-                <input ref={moneyFlow} type="text" id="moneyFlow" className="fieldset-input" placeholder="Enter the amount" />
+                <input ref={moneyFlow} type="text" id="moneyFlow" className="fieldset-input-money" placeholder="Enter the amount" />
                 <div className="fieldset-buttons">
                     <button className="button" onClick={plus}>Add money</button>
                     <button className="button" onClick={minus}>Withdraw money</button>
