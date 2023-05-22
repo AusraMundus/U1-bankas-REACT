@@ -4,7 +4,8 @@ export default function MoneyBalance({ setEditData, account, msg }) {
 
     const moneyFlow = useRef(0);
 
-    const plus = _ => {
+    const plus = event => {
+        event.preventDefault();
         const money = parseFloat(moneyFlow.current.value);
         // Data validation
         if (money === undefined || money === null) { 
@@ -27,7 +28,8 @@ export default function MoneyBalance({ setEditData, account, msg }) {
         }
     };
 
-    const minus = _ => {
+    const minus = event => {
+        event.preventDefault();
         const money = parseFloat(moneyFlow.current.value);
         // Data validation
         if (money === undefined || money === null) {
