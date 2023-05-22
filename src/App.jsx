@@ -54,6 +54,7 @@ function App() {
     }
     crudDelete(KEY, deleteData.id);
     setListUpdate(Date.now());
+    msg('Account was deleted.', 'info');
   }, [deleteData]);
 
   // Sort
